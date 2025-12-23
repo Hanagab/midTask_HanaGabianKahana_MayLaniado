@@ -1,0 +1,276 @@
+/* Hero / intro section styling */
+.intro-section {
+  background-image: url("assets/main-bg-pic.png");
+  background-size: cover;    
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 315px;
+  padding: 0;
+}
+
+/* Navbar logo size */
+#logoImg {
+  width: 200px;
+}
+
+/* Navbar background color */
+.menu-bg {
+  background-color: #E5D5E6;
+}
+
+/* Search input field styling */
+.search-box {
+  width: 500px;    
+  max-width: 100%;  
+  border: 2px solid #707070;
+}
+
+/* Form main container styling */
+.form-wrapper {
+  background: #e7d6e7;
+  border-radius: 18px;
+  padding: 40px 48px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Center form action buttons */
+#full-form #form-fields .d-flex.flex-wrap{
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.invalid-feedback {
+  color: #BC0000;
+}
+
+/* Reset button styling */
+.btn-clean {
+  background-color: white;
+  width: 100px;
+  border-radius: 10px;
+  border-style: none;
+  font-weight: bold;
+}
+
+/* Reset button hover state */
+.btn-clean:hover {
+  background-color: #AFAFAF; 
+}
+
+/* Submit button styling */
+.submit-btn {
+  color: white;
+  width: 100px;
+  border-radius: 10px;
+  border-style: none;
+  font-weight: bold;
+}
+
+/* Active submit button state */
+.btn-active {
+  background-color: #952668;
+}
+
+/* Active submit button hover state */
+.btn-active:hover {
+  background-color: #B0528A; 
+}
+
+/* Disabled submit button state */
+.btn-not-active {
+  background-color: #BD7DA7;
+  cursor: not-allowed;
+}
+
+/* Override Bootstrap dropdown button styling inside the form */
+#full-form .btn-outline-secondary {
+  background-color: #ffffff !important;
+  color: #333 !important;
+}
+
+/* Program card container */
+.program-card{
+  background: #F6F6F6;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+/* Program image wrapper spacing */
+.program-img-wrapper{
+  padding: 15px;
+}
+
+/* Program image styling */
+.program-img{
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Program card content */
+.program-body{
+  padding: 16px;
+  text-align: center;
+}
+
+/* Program title button */
+.program-title{
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #e7d6e7; 
+  color: #111;
+  font-weight: bold;
+  text-decoration: none !important;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* Program title hover state */
+.program-title:hover{
+  color: #952668;
+}
+
+/* Program description text */
+.program-text{
+  margin: 12px 0 0;
+  color: #222;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Email input container width */
+.email-input {
+  width: 100%;
+  max-width: 300px;   
+}
+
+
+/* Placeholder text styling */
+::placeholder {
+  color: #707070;
+  opacity: 1;
+}
+
+/* Global design tokens */
+:root {
+  --clr-text: #000000;
+  --font-family-base: "Rubik", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-black: 900;
+}
+
+/* Base page styling */
+body {
+  color: var(--clr-text);
+  background: #FCFCFC;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Headings typography */
+h1,
+.h1 {
+  font-weight: var(--font-weight-black);
+}
+
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Brand text color utility */
+.text-on-brand {
+  color: black !important;
+}
+
+/* Base link styling */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Link hover and focus states */
+a:hover,
+a:focus {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Brand button styling */
+.btn-brand {
+  background-color: #E5D5E6;
+  color: black;
+}
+
+/* Brand button hover/focus states */
+.btn-brand:hover,
+.btn-brand:focus-visible {
+  background-color: #DBB6DD;
+  color: black;
+}
+
+/* Custom navbar toggler icon base */
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Hamburger icon (closed state) */
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Close (X) icon (open state) */
+.navbar-toggler.is-open .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6l12 12M18 6L6 18' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Skip link for keyboard accessibility */
+.skip-link{
+  position:absolute;
+  top:0;
+  right:0;
+  transform: translateY(-120%);
+  background:#fff;
+  color:#000;
+  padding:10px 14px;
+  z-index:9999;
+  border:2px solid #000;
+  border-radius:10px;
+}
+
+/* Skip link focus state */
+.skip-link:focus{
+  transform: translateY(10px);
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+/* Global focus indicator */
+:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 767.98px) {
+  .intro-section  {
+    max-height: 300px;
+  }
+   .email-input {
+    max-width: 100%;
+  }
+}
+

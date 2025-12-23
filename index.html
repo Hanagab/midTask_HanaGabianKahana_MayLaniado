@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>החברה למתנ״סים - עולמות תוכן</title>
+
+  <!-- Bootstrap RTL  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Skip link for keyboard users to jump directly to the main content -->
+  <a class="skip-link" href="#main-content">דלגי לתוכן הראשי</a>
+
+  <!-- Sticky header with navigation bar -->
+  <header class="sticky-top border-bottom border-2 shadow-sm menu-bg">
+    <nav class="navbar navbar-expand-lg py-3">
+      <div class="container">
+
+        <!-- Logo (links to top/home) -->
+        <a class="navbar-brand" href="#">
+          <img id="logoImg" src="assets/logo.png" alt="Company logo" />
+        </a>
+
+        <!-- Mobile navigation toggler (Bootstrap collapse button) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar" aria-expanded="false" aria-label="פתח תפריט ניווט">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navigation menu (Bootstrap collapse container) -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto gap-2 nav-pills">
+            <!-- Navigation links to external pages on the main site -->
+            <li class="nav-item">
+              <a class="nav-link text-on-brand" href="https://www.matnasim.org.il/about">
+                מי אנחנו
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-on-brand" href="https://www.matnasim.org.il/centers">
+                מרכזים קהילתיים
+              </a>
+            </li>
+            <!-- Current page link (local file) -->
+            <li class="nav-item">
+              <a class="nav-link text-on-brand" href="index.html">
+                עולמות תוכן
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-on-brand" href="https://www.matnasim.org.il/partnerships">
+                שותפויות
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-on-brand" href="https://www.matnasim.org.il/civi">
+                קריירה ומכרזים
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main page content (target for the skip link) -->
+  <main id="main-content">
+
+    <!-- Hero / intro section with background image and headings -->
+    <section id="intro" class="intro-section d-flex align-items-center justify-content-center">
+      <div class="container text-center">
+        <header class="intro-header">
+          <h1 class="h1">עולמות תוכן</h1>
+          <h2 class="h3">תכניות הדגל של החברה למתנ״סים</h2>
+        </header>
+      </div>
+    </section>
+
+
+    <!-- Search section used to filter the programs list -->
+    <section id="search" class="py-4">
+      <div class="container">
+        <form class="d-flex justify-content-start gap-2" dir="rtl">
+          <!-- Search input (listens to input events in JS to apply live filtering) -->
+          <input type="search" id="search-input" class="form-control search-box" placeholder="איזה תכנית את/ה מחפש/ת?"
+            aria-label="חיפוש תוכן">
+        </form>
+      </div>
+    </section>
+
+    <!-- Programs grid section (cards are injected dynamically via JavaScript) -->
+    <section id="programs" class="py-3">
+      <div class="container">
+        <!-- Grid container that will be filled by renderPrograms() -->
+        <div id="programs-grid" class="row g-4 justify-content-center"></div>
+
+        <!-- Live region for "no results" message -->
+        <div id="empty-programs" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Feedback form section -->
+  <section id="full-form" class="py-5">
+    <div class="container">
+      <div class="form-wrapper">
+
+        <!-- Form header with dynamic user name (filled via SCORM) -->
+        <header class="mb-4">
+          <h2 class="h3 mb-1"><span id="user-name">{שם משתמש/ת}</span>, נשמח לשמוע ממך!</h2>
+        </header>
+
+        <!-- Feedback form -->
+        <form id="form-fields" action="#" method="post" novalidate>
+
+          <!-- Q1: Optional email field -->
+          <article class="mb-4" dir="rtl" lang="he" id="email-article">
+            <h3 class="h5" id="q1-title">
+              <label class="form-label" for="q1input">
+                היית מעוניין/ת לשמוע על תכניות חדשות שמתווספות לעולמות התוכן שלנו? הזן/י מייל
+              </label>
+            </h3>
+
+            <div class="email-input">
+              <!-- Email input -->
+              <input type="email" id="q1input" name="q1" class="form-control" inputmode="email"
+                placeholder="example@gmail.com" autocomplete="email" style="direction: rtl;">
+            </div>
+          </article>
+
+          <!-- Q2: Dropdown selection (value stored in hidden input) -->
+          <article class="mb-4" dir="rtl" lang="he">
+            <h3 class="h5" id="q2-title">
+              מבין עולמות התוכן המרכזיים שלנו, באיזה תחום תרצה/י לקבל מידע נוסף?
+            </h3>
+
+            <div class="dropdown">
+              <!-- Dropdown button (updates text based on selection) -->
+              <button class="btn btn-outline-secondary dropdown-toggle" data-default-text="בחר/י מבין האפשרויות"
+                type="button" id="q2DropdownButton" data-bs-toggle="dropdown" aria-expanded="false"
+                aria-haspopup="true">
+                בחר/י מבין האפשרויות
+              </button>
+
+              <!-- Dropdown options (each item has a data-value used in JS) -->
+              <ul class="dropdown-menu" aria-labelledby="q2DropdownButton">
+                <li>
+                  <button class="dropdown-item" type="button" data-value="National_programs">
+                    תכניות לאומיות
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-value="kids_and_family">
+                    גיל הרך ומשפחה
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-value="Youth">
+                    צעירים
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-value="Elderly_citizens">
+                    אזרחיות ואזרחים ותיקים
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Hidden input that stores the selected dropdown value for submission/reporting -->
+            <input type="hidden" name="q2" id="q2value">
+          </article>
+
+          <!-- Q3: Single-choice radio question -->
+          <article class="mb-4" dir="rtl" lang="he">
+            <h3 class="h5" id="q3-title">האם המידע הזה עזר לך?</h3>
+
+            <!-- Fieldset groups radio inputs for accessibility -->
+            <fieldset aria-labelledby="q3-title">
+              <legend class="visually-hidden">דירוג מידת העזרה של המידע</legend>
+
+              <!-- Radio options -->
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="option-A" value="Very_much_helpful">
+                  <label class="form-check-label" for="option-A">עזר במידה רבה מאוד</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="option-B" value="Very_helpful">
+                  <label class="form-check-label" for="option-B">עזר במידה רבה</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="option-C" value="Moderately_helpful">
+                  <label class="form-check-label" for="option-C">עזר במידה בינונית</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="option-D" value="Little_helpful">
+                  <label class="form-check-label" for="option-D">עזר במידה מועטה</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="option-E" value="Not_helpful">
+                  <label class="form-check-label" for="option-E">כלל לא עזר</label>
+                </div>
+              </div>
+            </fieldset>
+          </article>
+
+          <!-- Form action buttons -->
+          <div class="d-flex flex-wrap gap-2">
+            <!-- Reset button clears the form inputs -->
+            <button type="reset" class="btn btn-clean">ניקוי טופס</button>
+
+            <!-- Submit button is enabled/disabled via JS based on validation -->
+            <button type="submit" id="btn-check" class="submit-btn btn-not-active" disabled>שליחה</button>
+          </div>
+        </form>
+
+        <!-- Loader -->
+        <div id="form-loader" class="d-none text-center py-5" tabindex="-1">
+          <div class="spinner-border" role="status" aria-label="שולח">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-3">שולח נתונים…</p>
+        </div>
+
+        <!-- Thank-you message shown after successful submission (hidden by default) -->
+        <div id="thanks-box" class="text-center d-none" aria-live="polite" role="status" tabindex="-1">
+          <p id="form-success-msg" class=" mt-0 mb-0">
+            הטופס נשלח בהצלחה, תודה על שיתוף הפעולה! ✅
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast notification for LMS connection error -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="lmsErrorToast" class="toast text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+
+      <div class="toast-header text-bg-danger">
+        <strong class="me-auto">שגיאה</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+
+      <div class="toast-body">
+        לא ניתן לשלוח את הטופס מכיוון שאין חיבור למערכת הלמידה (LMS).
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap bundle (required for collapse/dropdown components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <!-- SCORM API wrapper (pipwerks) -->
+  <script src="SCORM_API_wrapper.js"></script>
+
+  <!-- Main project JavaScript file -->
+  <script src="main.js"></script>
+
+</body>
+
+
+</html>
