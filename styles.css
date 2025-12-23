@@ -84,8 +84,9 @@
 
 /* Override Bootstrap dropdown button styling inside the form */
 #full-form .btn-outline-secondary {
-  background-color: #ffffff !important;
-  color: #333 !important;
+  background-color: #ffffff ;
+  color: #333 ;
+  border: none ;
 }
 
 /* Program card container */
@@ -273,4 +274,5 @@ a:focus {
     max-width: 100%;
   }
 }
+
 
